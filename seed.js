@@ -86,5 +86,5 @@ const addToCompany = async () => {
   mongoose.disconnect();
 };
 
-// addToCompany();
+addToCompany();
 addToAd();
