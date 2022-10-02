@@ -3,13 +3,13 @@ const express = require("express");
 const app = express();
 const PORT = 8000;
 
-const CatchAsync = require("./utilities/catchAsync");
-const ExpressError = require("./utilities/ExpressError");
+const CatchAsync = require("../search-app-backend/utilities/catchAsync");
+const ExpressError = require("../search-app-backend/utilities/ExpressError");
 
 const cors = require("cors");
 
-const Company = require("./models/Company");
-const Ad = require("./models/Ad");
+const Company = require("../search-app-backend/models/Company");
+const Ad = require("../search-app-backend/models/Ad");
 
 const mongoose = require("mongoose");
 const FuzzySearch = require("fuzzy-search");

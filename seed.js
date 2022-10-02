@@ -93,9 +93,13 @@ const addToCompany = async () => {
   mongoose.disconnect();
 };
 
+<<<<<<< HEAD
 // addToCompany();
 
 // After running the above function please update the ids in the ids array
 // So as to allow mongoose to work on the Ads and populate without error.
 
+=======
+addToCompany();
+>>>>>>> 3995df5a6b8c432e2f5aa1cb2ca68d7219dd51c2
 addToAd();
