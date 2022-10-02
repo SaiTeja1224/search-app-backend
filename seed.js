@@ -15,7 +15,7 @@ const addToAd = async () => {
   await Ad.deleteMany({});
   const newData = [
     {
-      company: "6337c8475c788ef267df7564",
+      company: "63391c2e85c348d337c81f17",
       primaryText: "Customer Relationship Manager",
       description:
         "CRM for your application, Consultation fee is very offordable",
@@ -24,7 +24,7 @@ const addToAd = async () => {
         "https://images.unsplash.com/photo-1635110982103-c918aa21d9b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
     },
     {
-      company: "6337c8475c788ef267df7566",
+      company: "63391c2e85c348d337c81f19",
       primaryText: "Entertainment",
       description: "Discount on your first subscription. Learn more right here",
       cta: "Learn More",
@@ -32,7 +32,7 @@ const addToAd = async () => {
         "https://images.unsplash.com/photo-1635110982103-c918aa21d9b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
     },
     {
-      company: "6337c8475c788ef267df7565",
+      company: "63391c2e85c348d337c81f18",
       primaryText: "Shoes",
       description: "Buy shoes which are high quality",
       cta: "Sign Up",
@@ -40,7 +40,7 @@ const addToAd = async () => {
         "https://images.unsplash.com/photo-1635110982103-c918aa21d9b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
     },
     {
-      company: "6337c8475c788ef267df7563",
+      company: "63391c2e85c348d337c81f16",
       primaryText: "Clothing",
       description: "Buy 1 set of clothes and get another for free",
       cta: "Shop Now",
@@ -48,7 +48,7 @@ const addToAd = async () => {
         "https://images.unsplash.com/photo-1635110982103-c918aa21d9b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
     },
     {
-      company: "6337c8475c788ef267df7563",
+      company: "63391c2e85c348d337c81f16",
       primaryText: "Clothing",
       description: "Sign up to get free dicount vouchers added to your account",
       cta: "Shop Now",
@@ -66,19 +66,19 @@ const addToCompany = async () => {
   const newData = [
     {
       companyName: "Levi's",
-      companyUrl: "levis.com",
+      companyUrl: "www.levis.com",
     },
     {
       companyName: "Salesforce",
-      companyUrl: "salesforce.com",
+      companyUrl: "www.salesforce.com",
     },
     {
       companyName: "Puma",
-      companyUrl: "puma.com",
+      companyUrl: "www.puma.com",
     },
     {
       companyName: "Netflix",
-      companyUrl: "netflix.com",
+      companyUrl: "www.netflix.com",
     },
   ];
   const newInsertions = await Company.insertMany(newData);

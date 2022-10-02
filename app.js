@@ -6,7 +6,6 @@ const PORT = 8000;
 const CatchAsync = require("./utilities/catchAsync");
 const ExpressError = require("./utilities/ExpressError");
 
-const fuzzySearch = require("fuzzy-search");
 const cors = require("cors");
 
 const Company = require("./models/Company");
@@ -23,34 +22,43 @@ mongoose
     console.log(err);
   });
 
-let storedAds = [];
-const accessData = async () => {
-  try {
-    storedAds = await Ad.find({}).populate("company", {
-      companyName: 1,
-      companyUrl: 1,
-    });
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-accessData();
-const searchLocations = ["primaryText", "company.companyName"];
-
 app.use(cors());
 
 app.get(
   "/ads",
   CatchAsync(async (req, res, next) => {
     const { keyword } = req.query;
-    if (keyword === "") {
+    if (!keyword) {
       res.json({ ads: [], status: "Success" });
     } else {
-      const searcher = new FuzzySearch(storedAds, searchLocations, {
-        sort: true,
-      });
-      const result = searcher.search(keyword);
+      const regex = new RegExp(keyword, "i");
+      const searchLocations = [
+        {
+          description: regex,
+        },
+        {
+          primaryText: regex,
+        },
+        {
+          "company.companyName": regex,
+        },
+      ];
+
+      const result = await Ad.aggregate([
+        {
+          $lookup: {
+            from: "companies",
+            localField: "company",
+            foreignField: "_id",
+            as: "company",
+          },
+        },
+        {
+          $match: {
+            $or: searchLocations,
+          },
+        },
+      ]);
 
       res.json({ ads: result, status: "Success" });
     }
@@ -62,7 +70,6 @@ app.use("*", () => {
 });
 
 app.use((err, req, res, next) => {
-  // console.log(err.message, err.name);
   const { status = 500, message = "Something went wrong", name } = err;
   res
     .status(status)
